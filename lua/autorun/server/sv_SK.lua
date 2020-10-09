@@ -183,7 +183,7 @@ function Skid.CheckPassword(SID64, ipaddr, sv_pass, pass, user)
 		end
 	end
 end
-hook.Add("CheckPassword", "Skid.CheckPassword", Skid.CheckPassword)
+hook.Add("CheckPassword", "Skid.CheckPwd", Skid.CheckPassword)
 
 
 //IsOnSK, for easy checking in other addons etc
