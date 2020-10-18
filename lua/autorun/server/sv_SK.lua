@@ -57,7 +57,7 @@ local function GetAdmins()
 end
 
 //Check
-function Skid.Check(server_only)
+function Skid.CheckS(server_only)
 	//Get admins, used for sk_admin
 	local Admins = GetAdmins()
 	
@@ -118,7 +118,7 @@ end
 
 function Skid.Command(self,cmd,args)
 	if IsValid(self) and not self:IsAdmin() then return end
-	Skid.Check()
+	Skid.CheckS()
 end
 concommand.Add("sk", Skid.Command)
 
@@ -129,7 +129,7 @@ function Skid.Spawn(self)
 	
 	//Clients
 	timer.Simple(Skid.WaitFor, function()
-		Skid.Check()
+		Skid.CheckS()
 	end)
 end
 hook.Add("PlayerInitialSpawn", "Skid.Spawn", Skid.Spawn)
@@ -234,8 +234,6 @@ timer.Simple(1, Skid.Ready)
 	
 	SkidCheck is the list of people who I don't want playing on my server. Not "malicious code".
 	It was originally the HAC database, and was released here for anyone to use for any reason. Not to cause drama.
-	
-	I'm not going to bypass your disabling of SkidCheck in DarkRP, all that will now happen is the following messages.
 ]]
 local Check = Skid.Check
 timer.Simple(6, function()
